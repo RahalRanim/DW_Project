@@ -1,0 +1,312 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c96d076c-dd69-498f-97fd-4b0e4cbcad3f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DW Projet</ID>
+  <Name>DW Projet</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:NameMatchingCriteria</Name>
+      <Value>1</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>DW Projet</DataSourceID>
+  <Schema>
+    <xs:schema id="DW_x0020_Projet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="DW_x0020_Projet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="140c4e6b-6685-4dde-a056-a5c1249e3509">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Fact_VentesNationalesFilms" msprop:DbTableName="Fact_VentesNationalesFilms" msprop:FriendlyName="Fact_VentesNationalesFilms" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="aca1d41d-b059-4907-97e1-8df679a7edcc">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="domestic_sales__x0028_in__x0024__x0029_" msprop:FriendlyName="domestic_sales_(in_$)" msprop:DbColumnName="domestic_sales_(in_$)" msprop:design-time-name="9dfa706e-ecd1-4266-af91-9bb35aa3b93c" type="xs:double" minOccurs="0" />
+                  <xs:element name="id_DimGenreFilms" msprop:FriendlyName="id_DimGenreFilms" msprop:DbColumnName="id_DimGenreFilms" msprop:design-time-name="39f38a72-9535-4a3b-848f-3b0d0bbf9fb2" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimDistributorFilms" msprop:FriendlyName="id_DimDistributorFilms" msprop:DbColumnName="id_DimDistributorFilms" msprop:design-time-name="18c952dd-12ab-4aa4-bf81-1de5c7d84e28" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimRlsDateFilms" msprop:FriendlyName="id_DimRlsDateFilms" msprop:DbColumnName="id_DimRlsDateFilms" msprop:design-time-name="efea328e-60ae-424a-80f5-42156418e99f" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact_VentesMondialesFilms" msprop:DbTableName="Fact_VentesMondialesFilms" msprop:FriendlyName="Fact_VentesMondialesFilms" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="98c99d96-efee-490a-9d11-3d2a8a224378">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="world_sales__x0028_in__x0024__x0029_" msprop:FriendlyName="world_sales_(in_$)" msprop:DbColumnName="world_sales_(in_$)" msprop:design-time-name="2a4c0d49-1a34-4fc3-aeb3-5aa101cdc4ff" type="xs:double" minOccurs="0" />
+                  <xs:element name="id_DimGenreFilms" msprop:FriendlyName="id_DimGenreFilms" msprop:DbColumnName="id_DimGenreFilms" msprop:design-time-name="60677c85-a993-4612-8731-413e0b749090" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimDistributorFilms" msprop:FriendlyName="id_DimDistributorFilms" msprop:DbColumnName="id_DimDistributorFilms" msprop:design-time-name="59fd06f7-279f-4d13-9dc3-d6792d340b13" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimRlsDateFilms" msprop:FriendlyName="id_DimRlsDateFilms" msprop:DbColumnName="id_DimRlsDateFilms" msprop:design-time-name="9e2d2fd5-d9d3-44f9-8b98-f08bc308269e" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact_VentesInternationalesFilms" msprop:DbTableName="Fact_VentesInternationalesFilms" msprop:FriendlyName="Fact_VentesInternationalesFilms" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="eb7f2e08-5207-4cb3-bece-02c823aef6f0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="international_sales__x0028_in__x0024__x0029_" msprop:FriendlyName="international_sales_(in_$)" msprop:DbColumnName="international_sales_(in_$)" msprop:design-time-name="a17544e0-7092-4b14-9ecc-6b87462adb52" type="xs:double" minOccurs="0" />
+                  <xs:element name="id_DimGenreFilms" msprop:FriendlyName="id_DimGenreFilms" msprop:DbColumnName="id_DimGenreFilms" msprop:design-time-name="acace9cd-cc52-416a-99ca-462c8b98a72b" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimDistributorFilms" msprop:FriendlyName="id_DimDistributorFilms" msprop:DbColumnName="id_DimDistributorFilms" msprop:design-time-name="4f22a44a-321a-4d9a-b939-143f0977204a" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimRlsDateFilms" msprop:FriendlyName="id_DimRlsDateFilms" msprop:DbColumnName="id_DimRlsDateFilms" msprop:design-time-name="a6b80a4f-ecbb-45ba-b3a1-d2a5e5667e90" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact_VentesBrutesBook" msprop:DbTableName="Fact_VentesBrutesBook" msprop:FriendlyName="Fact_VentesBrutesBook" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="b2e43ade-cdde-4de5-a9c1-d851f8ad2e50">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="gross_sales" msprop:FriendlyName="gross_sales" msprop:DbColumnName="gross_sales" msprop:design-time-name="d0a43ee8-7519-49e9-98a3-128309627ee6" type="xs:double" minOccurs="0" />
+                  <xs:element name="id_DimGenreBooks" msprop:FriendlyName="id_DimGenreBooks" msprop:DbColumnName="id_DimGenreBooks" msprop:design-time-name="1cf79a78-2905-475e-ac3e-5af212a1d946" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimAuthorBook" msprop:FriendlyName="id_DimAuthorBook" msprop:DbColumnName="id_DimAuthorBook" msprop:design-time-name="5d677583-2190-4722-8287-431b3dd8c037" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimPubYearBooks" msprop:FriendlyName="id_DimPubYearBooks" msprop:DbColumnName="id_DimPubYearBooks" msprop:design-time-name="6364da8d-473f-4033-8a74-accc2d7a8caa" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact_VenteParRegionVG" msprop:DbTableName="Fact_VenteParRegionVG" msprop:FriendlyName="Fact_VenteParRegionVG" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="972c3072-4814-4e6f-864f-29cb5adecaa4">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="na_sales" msprop:FriendlyName="na_sales" msprop:DbColumnName="na_sales" msprop:design-time-name="c0346cd8-3b42-4a68-b7c5-6cedcc1545f4" type="xs:double" minOccurs="0" />
+                  <xs:element name="eu_sales" msprop:FriendlyName="eu_sales" msprop:DbColumnName="eu_sales" msprop:design-time-name="9583a1ae-d96c-4092-b90b-ebb34617a2cb" type="xs:double" minOccurs="0" />
+                  <xs:element name="jp_sales" msprop:FriendlyName="jp_sales" msprop:DbColumnName="jp_sales" msprop:design-time-name="05cc93e5-855d-41e9-934c-fed02b2e09bb" type="xs:double" minOccurs="0" />
+                  <xs:element name="other_sales" msprop:FriendlyName="other_sales" msprop:DbColumnName="other_sales" msprop:design-time-name="a18519be-9e27-4252-bfac-3251504af902" type="xs:double" minOccurs="0" />
+                  <xs:element name="id_DimGenreVG" msprop:FriendlyName="id_DimGenreVG" msprop:DbColumnName="id_DimGenreVG" msprop:design-time-name="e181d50c-5477-4530-8316-ffd3fa1d12c0" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimPlatformVG" msprop:FriendlyName="id_DimPlatformVG" msprop:DbColumnName="id_DimPlatformVG" msprop:design-time-name="4ef6e58f-3965-4bfd-bfec-9dece5c9e56c" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimPublisherVG" msprop:FriendlyName="id_DimPublisherVG" msprop:DbColumnName="id_DimPublisherVG" msprop:design-time-name="81f91f89-ae80-4b43-84df-4855b0a5a1e1" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact_VenteGolobalVG" msprop:DbTableName="Fact_VenteGolobalVG" msprop:FriendlyName="Fact_VenteGolobalVG" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="f28e8ba6-b130-40e6-a8aa-a5b0bd048e1d">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="global_sales" msprop:FriendlyName="global_sales" msprop:DbColumnName="global_sales" msprop:design-time-name="8c3b74c4-8a34-4874-9562-373e70b9c441" type="xs:double" minOccurs="0" />
+                  <xs:element name="id_DimGenreVG" msprop:FriendlyName="id_DimGenreVG" msprop:DbColumnName="id_DimGenreVG" msprop:design-time-name="7f3a9dc9-a1a8-4300-829c-fa67986077a6" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimPlatformVG" msprop:FriendlyName="id_DimPlatformVG" msprop:DbColumnName="id_DimPlatformVG" msprop:design-time-name="8be49433-1a8e-4285-8e5e-27ed07e1cca4" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimPublisherVG" msprop:FriendlyName="id_DimPublisherVG" msprop:DbColumnName="id_DimPublisherVG" msprop:design-time-name="87acec8a-517b-444b-9ae5-17bf8aa5a829" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact_BookRatingCount" msprop:DbTableName="Fact_BookRatingCount" msprop:FriendlyName="Fact_BookRatingCount" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="816b7c6b-b593-437c-a53f-454588df404c">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="book_ratings_count" msprop:FriendlyName="book_ratings_count" msprop:DbColumnName="book_ratings_count" msprop:design-time-name="5acdc1a0-fca6-4764-ae06-9aab5f56dc88" type="xs:double" minOccurs="0" />
+                  <xs:element name="id_DimGenreBooks" msprop:FriendlyName="id_DimGenreBooks" msprop:DbColumnName="id_DimGenreBooks" msprop:design-time-name="da320195-fa74-4e2c-ae3e-4e6a6c3904a0" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimAuthorBook" msprop:FriendlyName="id_DimAuthorBook" msprop:DbColumnName="id_DimAuthorBook" msprop:design-time-name="dd9b6b58-90c1-4041-aa26-8c1ec939f681" type="xs:int" minOccurs="0" />
+                  <xs:element name="id_DimPubYearBooks" msprop:FriendlyName="id_DimPubYearBooks" msprop:DbColumnName="id_DimPubYearBooks" msprop:design-time-name="5524f93d-a562-4763-91aa-d203c59ebbd7" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimGenreBooks" msprop:DbTableName="DimGenreBooks" msprop:FriendlyName="DimGenreBooks" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="03b66f73-4a30-41e3-9975-c6f8d28d7c8d">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimGenreBooks" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimGenreBooks" msprop:DbColumnName="id_DimGenreBooks" msprop:design-time-name="b5437f25-dc73-46e9-a3b2-0db0d8e21c22" type="xs:int" />
+                  <xs:element name="genre" msprop:FriendlyName="genre" msprop:DbColumnName="genre" msprop:design-time-name="9d5f55cc-f7f6-4d47-8de9-575fe948fe46" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimAuthorBook" msprop:DbTableName="DimAuthorBook" msprop:FriendlyName="DimAuthorBook" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="2a52824f-929c-4770-8ae7-f76abf10f25a">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimAuthorBook" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimAuthorBook" msprop:DbColumnName="id_DimAuthorBook" msprop:design-time-name="b10c7c12-62c4-499b-9679-25852eef1bd6" type="xs:int" />
+                  <xs:element name="author" msprop:FriendlyName="author" msprop:DbColumnName="author" msprop:design-time-name="36323240-64a6-46d8-bb00-4cc7970c2177" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimPublishingYearBooks" msprop:DbTableName="DimPublishingYearBooks" msprop:FriendlyName="DimPublishingYearBooks" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="ce3ba645-35c8-487c-afbc-55517e24bc15">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimPubYearBooks" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimPubYearBooks" msprop:DbColumnName="id_DimPubYearBooks" msprop:design-time-name="9ee3058d-72f9-4c5f-abfc-6ef126421131" type="xs:int" />
+                  <xs:element name="publishing_year" msprop:FriendlyName="publishing_year" msprop:DbColumnName="publishing_year" msprop:design-time-name="9fa67841-62cd-42a5-80d0-fdd661f937f3" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimPlatformVG" msprop:DbTableName="DimPlatformVG" msprop:FriendlyName="DimPlatformVG" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="d0d49e24-fdd0-4409-9909-2ffce0e27ef8">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimPlatformVG" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimPlatformVG" msprop:DbColumnName="id_DimPlatformVG" msprop:design-time-name="07f42c36-16c4-4a8f-b70f-f0e101d3f3bc" type="xs:int" />
+                  <xs:element name="platform" msprop:FriendlyName="platform" msprop:DbColumnName="platform" msprop:design-time-name="c7230b61-812b-4a69-bfa9-b89409f2dfa3" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimPublisherVG" msprop:DbTableName="DimPublisherVG" msprop:FriendlyName="DimPublisherVG" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="2db6e0b8-d11a-4661-9609-b30919f62946">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimPublisherVG" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimPublisherVG" msprop:DbColumnName="id_DimPublisherVG" msprop:design-time-name="3657ab37-ffd6-4938-bc7b-dcd885dccc90" type="xs:int" />
+                  <xs:element name="publisher" msprop:FriendlyName="publisher" msprop:DbColumnName="publisher" msprop:design-time-name="d206ccb5-1afa-4c0c-a37e-6f642ca44eb2" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimGenreVG" msprop:DbTableName="DimGenreVG" msprop:FriendlyName="DimGenreVG" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="508cf811-ac31-4caa-a86f-12049baaad4c">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimGenreVG" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimGenreVG" msprop:DbColumnName="id_DimGenreVG" msprop:design-time-name="0a6633ec-abe2-4a15-a3fc-757445fa3a10" type="xs:int" />
+                  <xs:element name="genre" msprop:FriendlyName="genre" msprop:DbColumnName="genre" msprop:design-time-name="34c21832-6de8-4af9-af1b-14a554c7a2cd" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimReleaseDateFilms" msprop:DbTableName="DimReleaseDateFilms" msprop:FriendlyName="DimReleaseDateFilms" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="53f54e90-a9ed-4991-822d-4d289b5f5cfa">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimRlsDateFilms" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimRlsDateFilms" msprop:DbColumnName="id_DimRlsDateFilms" msprop:design-time-name="423c2eec-5cd6-4ecd-8cb7-a8a419e5314d" type="xs:int" />
+                  <xs:element name="release_date" msprop:FriendlyName="release_date" msprop:DbColumnName="release_date" msprop:design-time-name="3b8b2cbd-2489-494d-8209-6f8a2cefd6bf" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimGenreFilms" msprop:DbTableName="DimGenreFilms" msprop:FriendlyName="DimGenreFilms" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="8aa3618f-b617-492f-bacd-1483f6bcbb56">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimGenreFilms" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimGenreFilms" msprop:DbColumnName="id_DimGenreFilms" msprop:design-time-name="35688a3b-a7a4-4a94-b821-b4c15492538a" type="xs:int" />
+                  <xs:element name="genre" msprop:FriendlyName="genre" msprop:DbColumnName="genre" msprop:design-time-name="0cafe7e3-5466-4d44-9324-d686f227b84d" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimDistributorFilms" msprop:DbTableName="DimDistributorFilms" msprop:FriendlyName="DimDistributorFilms" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="d549e6e9-c87b-4fce-b888-603c41b6241a">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_DimDistributorFilms" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="id_DimDistributorFilms" msprop:DbColumnName="id_DimDistributorFilms" msprop:design-time-name="372ca2af-dbe7-471b-b656-f587d1af8c00" type="xs:int" />
+                  <xs:element name="distributor" msprop:FriendlyName="distributor" msprop:DbColumnName="distributor" msprop:design-time-name="ab4c219c-9f3f-4450-876f-5818973a15b1" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimGenreBooks" />
+          <xs:field xpath="id_DimGenreBooks" />
+        </xs:unique>
+        <xs:unique name="dbo_DimAuthorBook_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimAuthorBook" />
+          <xs:field xpath="id_DimAuthorBook" />
+        </xs:unique>
+        <xs:unique name="dbo_DimPublishingYearBooks_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimPublishingYearBooks" />
+          <xs:field xpath="id_DimPubYearBooks" />
+        </xs:unique>
+        <xs:unique name="dbo_DimPlatformVG_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimPlatformVG" />
+          <xs:field xpath="id_DimPlatformVG" />
+        </xs:unique>
+        <xs:unique name="dbo_DimPublisherVG_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimPublisherVG" />
+          <xs:field xpath="id_DimPublisherVG" />
+        </xs:unique>
+        <xs:unique name="dbo_DimGenreVG_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimGenreVG" />
+          <xs:field xpath="id_DimGenreVG" />
+        </xs:unique>
+        <xs:unique name="dbo_DimReleaseDateFilms_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimReleaseDateFilms" />
+          <xs:field xpath="id_DimRlsDateFilms" />
+        </xs:unique>
+        <xs:unique name="dbo_DimGenreFilms_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimGenreFilms" />
+          <xs:field xpath="id_DimGenreFilms" />
+        </xs:unique>
+        <xs:unique name="dbo_DimDistributorFilms_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimDistributorFilms" />
+          <xs:field xpath="id_DimDistributorFilms" />
+        </xs:unique>
+      </xs:element>
+      <xs:annotation>
+        <xs:appinfo>
+          <msdata:Relationship name="Fact_VentesNationalesFilms-DimGenreFilms" msdata:parent="dbo_DimGenreFilms" msdata:child="dbo_Fact_VentesNationalesFilms" msdata:parentkey="id_DimGenreFilms" msdata:childkey="id_DimGenreFilms" />
+          <msdata:Relationship name="Fact_VentesNationalesFilms-DimDistributorFilms" msdata:parent="dbo_DimDistributorFilms" msdata:child="dbo_Fact_VentesNationalesFilms" msdata:parentkey="id_DimDistributorFilms" msdata:childkey="id_DimDistributorFilms" />
+          <msdata:Relationship name="Fact_VentesNationalesFilms-DimReleaseDateFilms" msdata:parent="dbo_DimReleaseDateFilms" msdata:child="dbo_Fact_VentesNationalesFilms" msdata:parentkey="id_DimRlsDateFilms" msdata:childkey="id_DimRlsDateFilms" />
+          <msdata:Relationship name="Fact_VentesMondialesFilms-DimGenreFilms" msdata:parent="dbo_DimGenreFilms" msdata:child="dbo_Fact_VentesMondialesFilms" msdata:parentkey="id_DimGenreFilms" msdata:childkey="id_DimGenreFilms" />
+          <msdata:Relationship name="Fact_VentesMondialesFilms-DimDistributorFilms" msdata:parent="dbo_DimDistributorFilms" msdata:child="dbo_Fact_VentesMondialesFilms" msdata:parentkey="id_DimDistributorFilms" msdata:childkey="id_DimDistributorFilms" />
+          <msdata:Relationship name="Fact_VentesMondialesFilms-DimReleaseDateFilms" msdata:parent="dbo_DimReleaseDateFilms" msdata:child="dbo_Fact_VentesMondialesFilms" msdata:parentkey="id_DimRlsDateFilms" msdata:childkey="id_DimRlsDateFilms" />
+          <msdata:Relationship name="Fact_VentesInternationalesFilms-DimGenreFilms" msdata:parent="dbo_DimGenreFilms" msdata:child="dbo_Fact_VentesInternationalesFilms" msdata:parentkey="id_DimGenreFilms" msdata:childkey="id_DimGenreFilms" />
+          <msdata:Relationship name="Fact_VentesInternationalesFilms-DimDistributorFilms" msdata:parent="dbo_DimDistributorFilms" msdata:child="dbo_Fact_VentesInternationalesFilms" msdata:parentkey="id_DimDistributorFilms" msdata:childkey="id_DimDistributorFilms" />
+          <msdata:Relationship name="Fact_VentesInternationalesFilms-DimReleaseDateFilms" msdata:parent="dbo_DimReleaseDateFilms" msdata:child="dbo_Fact_VentesInternationalesFilms" msdata:parentkey="id_DimRlsDateFilms" msdata:childkey="id_DimRlsDateFilms" />
+          <msdata:Relationship name="Fact_VentesBrutesBook-DimGenreBooks" msdata:parent="dbo_DimGenreBooks" msdata:child="dbo_Fact_VentesBrutesBook" msdata:parentkey="id_DimGenreBooks" msdata:childkey="id_DimGenreBooks" />
+          <msdata:Relationship name="Fact_VentesBrutesBook-DimAuthorBook" msdata:parent="dbo_DimAuthorBook" msdata:child="dbo_Fact_VentesBrutesBook" msdata:parentkey="id_DimAuthorBook" msdata:childkey="id_DimAuthorBook" />
+          <msdata:Relationship name="Fact_VentesBrutesBook-DimPublishingYearBooks" msdata:parent="dbo_DimPublishingYearBooks" msdata:child="dbo_Fact_VentesBrutesBook" msdata:parentkey="id_DimPubYearBooks" msdata:childkey="id_DimPubYearBooks" />
+          <msdata:Relationship name="Fact_VenteParRegionVG-DimGenreVG" msdata:parent="dbo_DimGenreVG" msdata:child="dbo_Fact_VenteParRegionVG" msdata:parentkey="id_DimGenreVG" msdata:childkey="id_DimGenreVG" />
+          <msdata:Relationship name="Fact_VenteParRegionVG-DimPlatformVG" msdata:parent="dbo_DimPlatformVG" msdata:child="dbo_Fact_VenteParRegionVG" msdata:parentkey="id_DimPlatformVG" msdata:childkey="id_DimPlatformVG" />
+          <msdata:Relationship name="Fact_VenteParRegionVG-DimPublisherVG" msdata:parent="dbo_DimPublisherVG" msdata:child="dbo_Fact_VenteParRegionVG" msdata:parentkey="id_DimPublisherVG" msdata:childkey="id_DimPublisherVG" />
+          <msdata:Relationship name="Fact_VenteGolobalVG-DimGenreVG" msdata:parent="dbo_DimGenreVG" msdata:child="dbo_Fact_VenteGolobalVG" msdata:parentkey="id_DimGenreVG" msdata:childkey="id_DimGenreVG" />
+          <msdata:Relationship name="Fact_VenteGolobalVG-DimPlatformVG" msdata:parent="dbo_DimPlatformVG" msdata:child="dbo_Fact_VenteGolobalVG" msdata:parentkey="id_DimPlatformVG" msdata:childkey="id_DimPlatformVG" />
+          <msdata:Relationship name="Fact_VenteGolobalVG-DimPublisherVG" msdata:parent="dbo_DimPublisherVG" msdata:child="dbo_Fact_VenteGolobalVG" msdata:parentkey="id_DimPublisherVG" msdata:childkey="id_DimPublisherVG" />
+          <msdata:Relationship name="Fact_BookRatingCount-DimGenreBooks" msdata:parent="dbo_DimGenreBooks" msdata:child="dbo_Fact_BookRatingCount" msdata:parentkey="id_DimGenreBooks" msdata:childkey="id_DimGenreBooks" />
+          <msdata:Relationship name="Fact_BookRatingCount-DimAuthorBook" msdata:parent="dbo_DimAuthorBook" msdata:child="dbo_Fact_BookRatingCount" msdata:parentkey="id_DimAuthorBook" msdata:childkey="id_DimAuthorBook" />
+          <msdata:Relationship name="Fact_BookRatingCount-DimPublishingYearBooks" msdata:parent="dbo_DimPublishingYearBooks" msdata:child="dbo_Fact_BookRatingCount" msdata:parentkey="id_DimPubYearBooks" msdata:childkey="id_DimPubYearBooks" />
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:schema>
+    <DW_x0020_Projet xmlns="" />
+  </Schema>
+</DataSourceView>

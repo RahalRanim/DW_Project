@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Projet Entropot_Donnees", "Projet Entropot_Donnees.dtproj", "{64734154-D325-4DF9-8345-2812E5A79986}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64734154-D325-4DF9-8345-2812E5A79986}.Development|Default.ActiveCfg = Development
+		{64734154-D325-4DF9-8345-2812E5A79986}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F178C037-493E-4883-A43E-D9E65128790F}
+	EndGlobalSection
+EndGlobal

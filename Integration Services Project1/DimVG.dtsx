@@ -1,0 +1,1065 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2024 11:11:12 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RANIMS-PC1"
+  DTS:CreatorName="RANIMS-PC1\Ranim Rahal"
+  DTS:DTSID="{0F9D28FB-3C7E-4E6B-BF0D-4A9118D27967}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="Package3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{E6F5506D-5185-4654-AD57-ADF98FBDC7F5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Les Dims du table VG"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{20A357DE-D127-4198-B2E8-5F7ADC31BBCB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Les Dims du table VG"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Les Dims du table VG\DimGenre_DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DimGenre_DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DimGenreVG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table VG\DimGenre_DW.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Les Dims du table VG\DimGenre_DW.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Les Dims du table VG\DimGenre_DW.Inputs[Entrée de destination OLE DB].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      externalMetadataColumnId="Package\Les Dims du table VG\DimGenre_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      lineageId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].Columns[genre]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\DimGenre_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\DimGenre_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreVG]"
+                      dataType="i4"
+                      name="id_DimGenreVG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table VG\DimGenre_DW.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Les Dims du table VG\DimGenre_DW.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\DimGenre_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\DimGenre_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\DimGenre_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\DimGenre_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table VG\DimPlatform_DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DimPlatform_DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DimPlatformVG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table VG\DimPlatform_DW.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Les Dims du table VG\DimPlatform_DW.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Les Dims du table VG\DimPlatform_DW.Inputs[Entrée de destination OLE DB].Columns[platform]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="platform"
+                      externalMetadataColumnId="Package\Les Dims du table VG\DimPlatform_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[platform]"
+                      lineageId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].Columns[platform]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\DimPlatform_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      name="platform" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\DimPlatform_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPlatformVG]"
+                      dataType="i4"
+                      name="id_DimPlatformVG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table VG\DimPlatform_DW.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Les Dims du table VG\DimPlatform_DW.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\DimPlatform_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\DimPlatform_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\DimPlatform_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\DimPlatform_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table VG\DimPublisher_DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DimPublisher_DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DimPublisherVG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table VG\DimPublisher_DW.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Les Dims du table VG\DimPublisher_DW.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Les Dims du table VG\DimPublisher_DW.Inputs[Entrée de destination OLE DB].Columns[publisher]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="publisher"
+                      externalMetadataColumnId="Package\Les Dims du table VG\DimPublisher_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[publisher]"
+                      lineageId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].Columns[publisher]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\DimPublisher_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\DimPublisher_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPublisherVG]"
+                      dataType="i4"
+                      name="id_DimPublisherVG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table VG\DimPublisher_DW.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Les Dims du table VG\DimPublisher_DW.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\DimPublisher_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\DimPublisher_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\DimPublisher_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\DimPublisher_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table VG\Genre_ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Genre_ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination VG_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table VG\Genre_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[rank]"
+                      dataType="r8"
+                      name="rank" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      name="platform" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[year]"
+                      dataType="r8"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[na_sales]"
+                      dataType="r8"
+                      name="na_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[eu_sales]"
+                      dataType="r8"
+                      name="eu_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[jp_sales]"
+                      dataType="r8"
+                      name="jp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[other_sales]"
+                      dataType="r8"
+                      name="other_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[global_sales]"
+                      dataType="r8"
+                      name="global_sales" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table VG\Platform_ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Platform_ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination VG_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table VG\Platform_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].Columns[platform]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[platform]"
+                      length="255"
+                      lineageId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].Columns[platform]"
+                      name="platform"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[rank]"
+                      dataType="r8"
+                      name="rank" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      name="platform" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[year]"
+                      dataType="r8"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[na_sales]"
+                      dataType="r8"
+                      name="na_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[eu_sales]"
+                      dataType="r8"
+                      name="eu_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[jp_sales]"
+                      dataType="r8"
+                      name="jp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[other_sales]"
+                      dataType="r8"
+                      name="other_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB].ExternalColumns[global_sales]"
+                      dataType="r8"
+                      name="global_sales" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[platform]"
+                      name="platform" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table VG\Publisher_ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Publisher_ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination VG_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table VG\Publisher_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].Columns[publisher]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher]"
+                      length="255"
+                      lineageId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].Columns[publisher]"
+                      name="publisher"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[rank]"
+                      dataType="r8"
+                      name="rank" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      name="platform" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[year]"
+                      dataType="r8"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[na_sales]"
+                      dataType="r8"
+                      name="na_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[eu_sales]"
+                      dataType="r8"
+                      name="eu_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[jp_sales]"
+                      dataType="r8"
+                      name="jp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[other_sales]"
+                      dataType="r8"
+                      name="other_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB].ExternalColumns[global_sales]"
+                      dataType="r8"
+                      name="global_sales" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[publisher]"
+                      name="publisher" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Les Dims du table VG.Paths[Sortie de source OLE DB]"
+              endId="Package\Les Dims du table VG\DimGenre_DW.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Les Dims du table VG\Genre_ods.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Les Dims du table VG.Paths[Sortie de source OLE DB1]"
+              endId="Package\Les Dims du table VG\DimPlatform_DW.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Les Dims du table VG\Platform_ods.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Les Dims du table VG.Paths[Sortie de source OLE DB2]"
+              endId="Package\Les Dims du table VG\DimPublisher_DW.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Les Dims du table VG\Publisher_ods.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Les Dims du table VG"
+          TopLeft="69,155" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Les Dims du table VG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Les Dims du table VG\Publisher_ods"
+          TopLeft="521,158" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Les Dims du table VG\Platform_ods"
+          TopLeft="246,158" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Les Dims du table VG\DimPublisher_DW"
+          TopLeft="507,262" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Les Dims du table VG\DimPlatform_DW"
+          TopLeft="231,260" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Les Dims du table VG\DimGenre_DW"
+          TopLeft="26,263" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Les Dims du table VG\Genre_ods"
+          TopLeft="29,161" />
+        <EdgeLayout
+          Id="Package\Les Dims du table VG.Paths[Sortie de source OLE DB]"
+          TopLeft="96.75,203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Les Dims du table VG.Paths[Sortie de source OLE DB2]"
+          TopLeft="590.75,200">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Les Dims du table VG.Paths[Sortie de source OLE DB1]"
+          TopLeft="313.75,200">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table VG\Publisher_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table VG\Platform_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table VG\DimPublisher_DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table VG\DimPlatform_DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table VG\DimGenre_DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table VG\Genre_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

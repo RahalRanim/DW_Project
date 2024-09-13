@@ -1,0 +1,757 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/23/2024 6:47:00 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RANIMS-PC1"
+  DTS:CreatorName="RANIMS-PC1\Ranim Rahal"
+  DTS:DTSID="{DDDC8824-8BAC-4A0F-B1BD-E7AEAB442972}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{E8E00F17-78DC-492F-81B0-27FAD70FE218}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{EABF895A-3EBA-49BC-B42F-F9037693355F}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\21623\Desktop\DW\VG_cleaned_data.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{8480E560-5B4C-48A2-8A61-D883170D1EFF}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\21623\Desktop\DW\VG_cleaned_data.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{C89C1827-E661-4F18-8FFF-907204D71A0E}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\21623\Desktop\DW\VG_cleaned_data.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chargement de la table VG"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{1DF80ABD-9997-4A53-9068-5564EE764A28}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement de la table VG"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement de la table VG\Destination VG_ods"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination VG_ods"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Destination VG_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de la table VG\Destination VG_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[rank]"
+                      cachedDataType="r8"
+                      cachedName="rank"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[rank]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[rank]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[name]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[name]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[platform]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="platform"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[platform]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[platform]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[year]"
+                      cachedDataType="r8"
+                      cachedName="year"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[year]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[year]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[genre]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[publisher]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="publisher"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[publisher]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[publisher]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[na_sales]"
+                      cachedDataType="r8"
+                      cachedName="na_sales"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[na_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[na_sales]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[eu_sales]"
+                      cachedDataType="r8"
+                      cachedName="eu_sales"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[eu_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[eu_sales]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[jp_sales]"
+                      cachedDataType="r8"
+                      cachedName="jp_sales"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[jp_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[jp_sales]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[other_sales]"
+                      cachedDataType="r8"
+                      cachedName="other_sales"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[other_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[other_sales]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].Columns[global_sales]"
+                      cachedDataType="r8"
+                      cachedName="global_sales"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[global_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[global_sales]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[rank]"
+                      dataType="r8"
+                      name="rank" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      name="platform" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[year]"
+                      dataType="r8"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[na_sales]"
+                      dataType="r8"
+                      name="na_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[eu_sales]"
+                      dataType="r8"
+                      name="eu_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[jp_sales]"
+                      dataType="r8"
+                      name="jp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[other_sales]"
+                      dataType="r8"
+                      name="other_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[global_sales]"
+                      dataType="r8"
+                      name="global_sales" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de la table VG\Destination VG_ods.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table VG\Destination VG_ods.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Destination VG_ods.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table VG\Destination VG_ods.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de la table VG\Source VG_datasets"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="Source VG_datasets"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de la table VG\Source VG_datasets.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[rank]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[rank]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[rank]"
+                      name="rank"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[name]"
+                      length="255"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[platform]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[platform]"
+                      length="255"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[platform]"
+                      name="platform"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[year]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[year]"
+                      name="year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[publisher]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[publisher]"
+                      length="255"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[publisher]"
+                      name="publisher"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[na_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[na_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[na_sales]"
+                      name="na_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[eu_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[eu_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[eu_sales]"
+                      name="eu_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[jp_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[jp_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[jp_sales]"
+                      name="jp_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[other_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[other_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[other_sales]"
+                      name="other_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[global_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[global_sales]"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].Columns[global_sales]"
+                      name="global_sales"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[rank]"
+                      dataType="r8"
+                      name="rank" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      name="platform" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[year]"
+                      dataType="r8"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[na_sales]"
+                      dataType="r8"
+                      name="na_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[eu_sales]"
+                      dataType="r8"
+                      name="eu_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[jp_sales]"
+                      dataType="r8"
+                      name="jp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[other_sales]"
+                      dataType="r8"
+                      name="other_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel].ExternalColumns[global_sales]"
+                      dataType="r8"
+                      name="global_sales" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[rank]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[rank]"
+                      name="rank" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[platform]"
+                      name="platform" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[year]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[year]"
+                      name="year" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[publisher]"
+                      name="publisher" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[na_sales]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[na_sales]"
+                      name="na_sales" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[eu_sales]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[eu_sales]"
+                      name="eu_sales" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[jp_sales]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[jp_sales]"
+                      name="jp_sales" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[other_sales]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[other_sales]"
+                      name="other_sales" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[global_sales]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[global_sales]"
+                      name="global_sales" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement de la table VG.Paths[Sortie de source Excel]"
+              endId="Package\Chargement de la table VG\Destination VG_ods.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source Excel"
+              startId="Package\Chargement de la table VG\Source VG_datasets.Outputs[Sortie de source Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{A9BA1B24-7432-477E-9E6D-E51573B89340}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [ODS].[dbo].[Destination VG_ods]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{85F8B20F-B76F-4D99-A114-9252C7393978}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Chargement de la table VG" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Chargement de la table VG"
+          TopLeft="69,201" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="25,53" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="147.5,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.5,106"
+              Start="0,0"
+              End="24.5,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49"
+                    Point2="0,53"
+                    Point3="4,53" />
+                  <mssgle:LineSegment
+                    End="20.5,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5,53"
+                    Point2="24.5,53"
+                    Point3="24.5,57" />
+                  <mssgle:LineSegment
+                    End="24.5,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chargement de la table VG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Chargement de la table VG\Destination VG_ods"
+          TopLeft="151,242" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Chargement de la table VG\Source VG_datasets"
+          TopLeft="139,87" />
+        <EdgeLayout
+          Id="Package\Chargement de la table VG.Paths[Sortie de source Excel]"
+          TopLeft="225.5,129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,113"
+              Start="0,0"
+              End="11,105.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.5"
+                    Point2="0,56.5"
+                    Point3="4,56.5" />
+                  <mssgle:LineSegment
+                    End="7,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,56.5"
+                    Point2="11,56.5"
+                    Point3="11,60.5" />
+                  <mssgle:LineSegment
+                    End="11,105.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de la table VG\Destination VG_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de la table VG\Source VG_datasets">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

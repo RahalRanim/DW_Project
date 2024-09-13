@@ -1,0 +1,145 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="3bd67042-3499-4e3a-ae8e-39b1b7092b3b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DW Projet</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Ventes Nationales Films</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3b52933a-5cef-4020-9049-7c9751afd5f5">
+          <ID>Fact Ventes Nationales Films</ID>
+          <Name>Fact Ventes Nationales Films</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b044b680-1b03-499a-b96c-b98aff015990">
+            <DataSourceViewID>DW Projet</DataSourceViewID>
+            <TableID>dbo_Fact_VentesNationalesFilms</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Ventes Mondiales Films</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="39907486-d575-4269-99ed-b8d09271bedb">
+          <ID>Fact Ventes Mondiales Films</ID>
+          <Name>Fact Ventes Mondiales Films</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="86b3c188-1154-44c0-a07c-a3efd27c4c60">
+            <DataSourceViewID>DW Projet</DataSourceViewID>
+            <TableID>dbo_Fact_VentesMondialesFilms</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Ventes Internationales Films</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3b55f8af-a5a2-4ce4-a12d-87dedf2f91cc">
+          <ID>Fact Ventes Internationales Films</ID>
+          <Name>Fact Ventes Internationales Films</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="98f970c0-eadf-4f58-8e87-35604a022285">
+            <DataSourceViewID>DW Projet</DataSourceViewID>
+            <TableID>dbo_Fact_VentesInternationalesFilms</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Ventes Brutes Book</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c333ba4f-8a49-4179-a815-40c852aedc43">
+          <ID>Fact Ventes Brutes Book</ID>
+          <Name>Fact Ventes Brutes Book</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="60ee80d3-4b82-4393-a3ed-0e0f2c5b3138">
+            <DataSourceViewID>DW Projet</DataSourceViewID>
+            <TableID>dbo_Fact_VentesBrutesBook</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Vente Par Region VG</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="97609f88-61c0-4d40-a2a8-9d3cda2c7eb4">
+          <ID>Fact Vente Par Region VG</ID>
+          <Name>Fact Vente Par Region VG</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f3b6d240-9a99-415b-b7b6-43d31e194185">
+            <DataSourceViewID>DW Projet</DataSourceViewID>
+            <TableID>dbo_Fact_VenteParRegionVG</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Vente Golobal VG</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3ad405a1-5754-439b-bc2a-b95ee529a40e">
+          <ID>Fact Vente Golobal VG</ID>
+          <Name>Fact Vente Golobal VG</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f5a246ce-b8d7-4c9e-93c4-8ab50dfde327">
+            <DataSourceViewID>DW Projet</DataSourceViewID>
+            <TableID>dbo_Fact_VenteGolobalVG</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Book Rating Count</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="e67c8e56-581a-4198-bdcd-cff001aed924">
+          <ID>Fact Book Rating Count</ID>
+          <Name>Fact Book Rating Count</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="da5cfcc1-50b2-4894-a313-c5467b5e73b6">
+            <DataSourceViewID>DW Projet</DataSourceViewID>
+            <TableID>dbo_Fact_BookRatingCount</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

@@ -1,0 +1,1481 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2024 4:20:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RANIMS-PC1"
+  DTS:CreatorName="RANIMS-PC1\Ranim Rahal"
+  DTS:DTSID="{E19DE3B7-45DD-4B1A-AC9E-828DD70F32C6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="Fact_Books"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{BD35DFED-86FD-4BD9-BB9B-58B321D10A56}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Créer les Facts du table Book"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{3ACCC169-C26A-4955-B7F9-35C641084F7C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Créer les Facts du table Book"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Créer les Facts du table Book\Books"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Books"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination Books_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Facts du table Book\Books.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[publishing_year]"
+                      length="50"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[publishing_year]"
+                      name="publishing_year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[author]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[author]"
+                      length="255"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[author]"
+                      name="author"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[gross_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[gross_sales]"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[gross_sales]"
+                      name="gross_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[book_ratings_count]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[book_ratings_count]"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[book_ratings_count]"
+                      name="book_ratings_count"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[index]"
+                      dataType="r8"
+                      name="index" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="publishing_year" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[book_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="book_name" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[author]"
+                      dataType="wstr"
+                      length="255"
+                      name="author" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[language_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[author_rating]"
+                      dataType="wstr"
+                      length="255"
+                      name="author_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[book_average_rating]"
+                      dataType="r8"
+                      name="book_average_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[book_ratings_count]"
+                      dataType="r8"
+                      name="book_ratings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[gross_sales]"
+                      dataType="r8"
+                      name="gross_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[publisher_revenue]"
+                      dataType="r8"
+                      name="publisher_revenue" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[sale_price]"
+                      dataType="r8"
+                      name="sale_price" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[sales_rank]"
+                      dataType="r8"
+                      name="sales_rank" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[publisher_]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher_" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].ExternalColumns[units_sold]"
+                      dataType="r8"
+                      name="units_sold" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[publishing_year]"
+                      name="publishing_year" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[author]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[author]"
+                      name="author" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[gross_sales]"
+                      dataType="r8"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[gross_sales]"
+                      name="gross_sales" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[book_ratings_count]"
+                      dataType="r8"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie d'erreur de source OLE DB].Columns[book_ratings_count]"
+                      name="book_ratings_count" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Facts du table Book\Fact Book Rating Count"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact Book Rating Count"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact_BookRatingCount]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].Columns[book_ratings_count]"
+                      cachedDataType="r8"
+                      cachedName="book_ratings_count"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].ExternalColumns[book_ratings_count]"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[book_ratings_count]" />
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].Columns[id_DimGenreBooks]"
+                      cachedDataType="i4"
+                      cachedName="id_DimGenreBooks"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreBooks]"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreBooks]" />
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].Columns[id_DimAuthorBook]"
+                      cachedDataType="i4"
+                      cachedName="id_DimAuthorBook"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimAuthorBook]"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimAuthorBook]" />
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].Columns[id_DimPubYearBooks]"
+                      cachedDataType="i4"
+                      cachedName="id_DimPubYearBooks"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPubYearBooks]"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPubYearBooks]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].ExternalColumns[book_ratings_count]"
+                      dataType="r8"
+                      name="book_ratings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreBooks]"
+                      dataType="i4"
+                      name="id_DimGenreBooks" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimAuthorBook]"
+                      dataType="i4"
+                      name="id_DimAuthorBook" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPubYearBooks]"
+                      dataType="i4"
+                      name="id_DimPubYearBooks" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Fact Book Rating Count.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Book Rating Count.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Fact Book Rating Count.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Facts du table Book\Fact Ventes Brutes"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact Ventes Brutes"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact_VentesBrutesBook]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].Columns[gross_sales]"
+                      cachedDataType="r8"
+                      cachedName="gross_sales"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].ExternalColumns[gross_sales]"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[gross_sales]" />
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].Columns[id_DimGenreBooks]"
+                      cachedDataType="i4"
+                      cachedName="id_DimGenreBooks"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreBooks]"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreBooks]" />
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].Columns[id_DimAuthorBook]"
+                      cachedDataType="i4"
+                      cachedName="id_DimAuthorBook"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimAuthorBook]"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimAuthorBook]" />
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].Columns[id_DimPubYearBooks]"
+                      cachedDataType="i4"
+                      cachedName="id_DimPubYearBooks"
+                      externalMetadataColumnId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPubYearBooks]"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPubYearBooks]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].ExternalColumns[gross_sales]"
+                      dataType="r8"
+                      name="gross_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreBooks]"
+                      dataType="i4"
+                      name="id_DimGenreBooks" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimAuthorBook]"
+                      dataType="i4"
+                      name="id_DimAuthorBook" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPubYearBooks]"
+                      dataType="i4"
+                      name="id_DimPubYearBooks" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Facts du table Book\Multidiffusion"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multidiffusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Distribue chaque ligne d'entrée à chaque ligne dans au moins une sortie. Par exemple, connectez votre flux de données pour effectuer une copie des données afin que certaines valeurs puissent être masquées avant de les partager avec des partenaires externes."
+              name="Multidiffusion">
+              <inputs>
+                <input
+                  refId="Package\Créer les Facts du table Book\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+                  name="Multidiffusion entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Facts du table Book\Multidiffusion.Outputs[Multidiffusion sortie 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multidiffusion sortie 1"
+                  synchronousInputId="Package\Créer les Facts du table Book\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Multidiffusion.Outputs[Sortie de multidiffusion 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 1"
+                  synchronousInputId="Package\Créer les Facts du table Book\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Multidiffusion.Outputs[Sortie de multidiffusion 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 2"
+                  synchronousInputId="Package\Créer les Facts du table Book\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Facts du table Book\Recherche DimAuthor"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimAuthor"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimAuthorBook]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimAuthorBook]) [refTable]
+where [refTable].[author] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimAuthorBook" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="author" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[author]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Inputs[Entrée de recherche].Columns[author]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="author"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[author]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">author</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimAuthor.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimAuthorBook]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimAuthorBook]"
+                      name="id_DimAuthorBook"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimAuthorBook</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimAuthor.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimAuthor.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Facts du table Book\Recherche DimGenre"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimGenre"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimGenreBooks]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimGenreBooks]) [refTable]
+where [refTable].[genre] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimGenreBooks" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="genre" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[genre]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Facts du table Book\Recherche DimGenre.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Facts du table Book\Recherche DimGenre.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimGenre.Inputs[Entrée de recherche].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[genre]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">genre</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreBooks]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreBooks]"
+                      name="id_DimGenreBooks"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimGenreBooks</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimPublishingYear"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPublishingYearBooks]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPublishingYearBooks]) [refTable]
+where [refTable].[publishing_year] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimPubYearBooks" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="publishing_year" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[publishing_year]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Inputs[Entrée de recherche].Columns[publishing_year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="publishing_year"
+                      lineageId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB].Columns[publishing_year]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">publishing_year</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPubYearBooks]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPubYearBooks]"
+                      name="id_DimPubYearBooks"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimPubYearBooks</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Créer les Facts du table Book.Paths[Multidiffusion sortie 1]"
+              endId="Package\Créer les Facts du table Book\Fact Book Rating Count.Inputs[Entrée de destination OLE DB]"
+              name="Multidiffusion sortie 1"
+              startId="Package\Créer les Facts du table Book\Multidiffusion.Outputs[Multidiffusion sortie 1]" />
+            <path
+              refId="Package\Créer les Facts du table Book.Paths[Sortie de multidiffusion 1]"
+              endId="Package\Créer les Facts du table Book\Fact Ventes Brutes.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de multidiffusion 1"
+              startId="Package\Créer les Facts du table Book\Multidiffusion.Outputs[Sortie de multidiffusion 1]" />
+            <path
+              refId="Package\Créer les Facts du table Book.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Créer les Facts du table Book\Recherche DimAuthor.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Créer les Facts du table Book\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Créer les Facts du table Book.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Créer les Facts du table Book\Recherche DimAuthor.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Créer les Facts du table Book.Paths[Sortie de recherche avec correspondance2]"
+              endId="Package\Créer les Facts du table Book\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Créer les Facts du table Book\Recherche DimPublishingYear.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Créer les Facts du table Book.Paths[Sortie de source OLE DB]"
+              endId="Package\Créer les Facts du table Book\Recherche DimGenre.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\Créer les Facts du table Book\Books.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="222,56"
+          Id="Package\Créer les Facts du table Book"
+          TopLeft="131,144" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Créer les Facts du table Book">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="107,42"
+          Id="Package\Créer les Facts du table Book\Books"
+          TopLeft="97,66" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Créer les Facts du table Book\Recherche DimGenre"
+          TopLeft="51,154" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Créer les Facts du table Book\Recherche DimAuthor"
+          TopLeft="161,232" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Créer les Facts du table Book\Recherche DimPublishingYear"
+          TopLeft="284,309" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Créer les Facts du table Book\Multidiffusion"
+          TopLeft="188,396" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Créer les Facts du table Book\Fact Book Rating Count"
+          TopLeft="82,468" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Créer les Facts du table Book\Fact Ventes Brutes"
+          TopLeft="352,463" />
+        <EdgeLayout
+          Id="Package\Créer les Facts du table Book.Paths[Sortie de source OLE DB]"
+          TopLeft="150.5,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5,46"
+              Start="0,0"
+              End="-10.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-6.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.5,23"
+                    Point2="-10.5,23"
+                    Point3="-10.5,27" />
+                  <mssgle:LineSegment
+                    End="-10.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Facts du table Book.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="140,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.5,36"
+              Start="0,0"
+              End="111.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="107.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.5,18"
+                    Point2="111.5,18"
+                    Point3="111.5,22" />
+                  <mssgle:LineSegment
+                    End="111.5,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-35.92701171875,23,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Facts du table Book.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="251.5,274">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142,35"
+              Start="0,0"
+              End="142,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="138,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="138,17.5"
+                    Point2="142,17.5"
+                    Point3="142,21.5" />
+                  <mssgle:LineSegment
+                    End="142,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-20.67701171875,22.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Facts du table Book.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="393.5,351">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-134.5,45"
+              Start="0,0"
+              End="-134.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="-4,22.5" />
+                  <mssgle:LineSegment
+                    End="-130.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-130.5,22.5"
+                    Point2="-134.5,22.5"
+                    Point3="-134.5,26.5" />
+                  <mssgle:LineSegment
+                    End="-134.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-158.92701171875,27.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Facts du table Book.Paths[Multidiffusion sortie 1]"
+          TopLeft="259,438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-82,30"
+              Start="0,0"
+              End="-82,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="-4,15" />
+                  <mssgle:LineSegment
+                    End="-78,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-78,15"
+                    Point2="-82,15"
+                    Point3="-82,19" />
+                  <mssgle:LineSegment
+                    End="-82,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Facts du table Book.Paths[Sortie de multidiffusion 1]"
+          TopLeft="281.333333333333,438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="154.166666666667,25"
+              Start="0,0"
+              End="154.166666666667,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.16713091922006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.16713091922006"
+                    Point2="0,10.1671309192201"
+                    Point3="4,10.1671309192201" />
+                  <mssgle:LineSegment
+                    End="150.166666666667,10.1671309192201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="150.166666666667,10.1671309192201"
+                    Point2="154.166666666667,10.1671309192201"
+                    Point3="154.166666666667,14.1671309192201" />
+                  <mssgle:LineSegment
+                    End="154.166666666667,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Facts du table Book\Books">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Facts du table Book\Recherche DimGenre">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimGenreBooks]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Facts du table Book\Recherche DimAuthor">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimAuthorBook]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Facts du table Book\Recherche DimPublishingYear">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPublishingYearBooks]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Facts du table Book\Fact Book Rating Count">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Facts du table Book\Fact Ventes Brutes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

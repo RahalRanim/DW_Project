@@ -1,0 +1,1530 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2024 12:23:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RANIMS-PC1"
+  DTS:CreatorName="RANIMS-PC1\Ranim Rahal"
+  DTS:DTSID="{9EE9F800-7455-4F41-8556-E1CA60F7EA06}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{AA5D5FC2-FC6D-4281-AD79-70172E0C1C8B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Gréer les Facts du table VG"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{ADE8E6FA-DDD3-43FE-9399-3ECD808E423F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Gréer les Facts du table VG"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Gréer les Facts du table VG\Fact vente golobal"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact vente golobal"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact_VenteGolobalVG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gréer les Facts du table VG\Fact vente golobal.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].Columns[global_sales]"
+                      cachedDataType="r8"
+                      cachedName="global_sales"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].ExternalColumns[global_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[global_sales]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].Columns[id_DimGenreVG]"
+                      cachedDataType="i4"
+                      cachedName="id_DimGenreVG"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreVG]"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreVG]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].Columns[id_DimPlatformVG]"
+                      cachedDataType="i4"
+                      cachedName="id_DimPlatformVG"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPlatformVG]"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPlatformVG]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].Columns[id_DimPublisherVG]"
+                      cachedDataType="i4"
+                      cachedName="id_DimPublisherVG"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPublisherVG]"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPublisherVG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].ExternalColumns[global_sales]"
+                      dataType="r8"
+                      name="global_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreVG]"
+                      dataType="i4"
+                      name="id_DimGenreVG" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPlatformVG]"
+                      dataType="i4"
+                      name="id_DimPlatformVG" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPublisherVG]"
+                      dataType="i4"
+                      name="id_DimPublisherVG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Fact vente golobal.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Fact vente golobal.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente golobal.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Fact vente golobal.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gréer les Facts du table VG\Fact vente par region"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact vente par region"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact_VenteParRegionVG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gréer les Facts du table VG\Fact vente par region.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].Columns[na_sales]"
+                      cachedDataType="r8"
+                      cachedName="na_sales"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[na_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[na_sales]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].Columns[eu_sales]"
+                      cachedDataType="r8"
+                      cachedName="eu_sales"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[eu_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[eu_sales]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].Columns[jp_sales]"
+                      cachedDataType="r8"
+                      cachedName="jp_sales"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[jp_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[jp_sales]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].Columns[other_sales]"
+                      cachedDataType="r8"
+                      cachedName="other_sales"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[other_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[other_sales]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].Columns[id_DimGenreVG]"
+                      cachedDataType="i4"
+                      cachedName="id_DimGenreVG"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreVG]"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreVG]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].Columns[id_DimPlatformVG]"
+                      cachedDataType="i4"
+                      cachedName="id_DimPlatformVG"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPlatformVG]"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPlatformVG]" />
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].Columns[id_DimPublisherVG]"
+                      cachedDataType="i4"
+                      cachedName="id_DimPublisherVG"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPublisherVG]"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPublisherVG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[na_sales]"
+                      dataType="r8"
+                      name="na_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[eu_sales]"
+                      dataType="r8"
+                      name="eu_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[jp_sales]"
+                      dataType="r8"
+                      name="jp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[other_sales]"
+                      dataType="r8"
+                      name="other_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreVG]"
+                      dataType="i4"
+                      name="id_DimGenreVG" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPlatformVG]"
+                      dataType="i4"
+                      name="id_DimPlatformVG" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPublisherVG]"
+                      dataType="i4"
+                      name="id_DimPublisherVG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Fact vente par region.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Fact vente par region.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Fact vente par region.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Fact vente par region.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gréer les Facts du table VG\Multidiffusion"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multidiffusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Distribue chaque ligne d'entrée à chaque ligne dans au moins une sortie. Par exemple, connectez votre flux de données pour effectuer une copie des données afin que certaines valeurs puissent être masquées avant de les partager avec des partenaires externes."
+              name="Multidiffusion">
+              <inputs>
+                <input
+                  refId="Package\Gréer les Facts du table VG\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+                  name="Multidiffusion entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Multidiffusion.Outputs[Multidiffusion sortie 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multidiffusion sortie 1"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Multidiffusion.Outputs[Sortie de multidiffusion 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 1"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Multidiffusion.Outputs[Sortie de multidiffusion 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 2"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gréer les Facts du table VG\Recherche DimGenre"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimGenre"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimGenreVG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimGenreVG]) [refTable]
+where [refTable].[genre] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimGenreVG" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="genre" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[genre]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Inputs[Entrée de recherche].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[genre]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">genre</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreVG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreVG]"
+                      name="id_DimGenreVG"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimGenreVG</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gréer les Facts du table VG\Recherche DimPlatform"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimPlatform"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPlatformVG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPlatformVG]) [refTable]
+where [refTable].[platform] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimPlatformVG" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="platform" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[platform]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Inputs[Entrée de recherche].Columns[platform]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="platform"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[platform]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">platform</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPlatformVG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPlatformVG]"
+                      name="id_DimPlatformVG"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimPlatformVG</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gréer les Facts du table VG\Recherche DimPublisher"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimPublisher"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPublisherVG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPublisherVG]) [refTable]
+where [refTable].[publisher] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimPublisherVG" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="publisher" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[publisher]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Inputs[Entrée de recherche].Columns[publisher]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="publisher"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[publisher]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">publisher</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPublisherVG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie de recherche avec correspondance].Columns[id_DimPublisherVG]"
+                      name="id_DimPublisherVG"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimPublisherVG</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gréer les Facts du table VG\VG_ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="VG_ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination VG_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gréer les Facts du table VG\VG_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[platform]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[platform]"
+                      length="255"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[platform]"
+                      name="platform"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[publisher]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher]"
+                      length="255"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[publisher]"
+                      name="publisher"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[na_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[na_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[na_sales]"
+                      name="na_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[eu_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[eu_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[eu_sales]"
+                      name="eu_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[jp_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[jp_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[jp_sales]"
+                      name="jp_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[other_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[other_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[other_sales]"
+                      name="other_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[global_sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[global_sales]"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].Columns[global_sales]"
+                      name="global_sales"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[rank]"
+                      dataType="r8"
+                      name="rank" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      name="platform" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[year]"
+                      dataType="r8"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[na_sales]"
+                      dataType="r8"
+                      name="na_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[eu_sales]"
+                      dataType="r8"
+                      name="eu_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[jp_sales]"
+                      dataType="r8"
+                      name="jp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[other_sales]"
+                      dataType="r8"
+                      name="other_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB].ExternalColumns[global_sales]"
+                      dataType="r8"
+                      name="global_sales" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[platform]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[platform]"
+                      name="platform" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[publisher]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[publisher]"
+                      name="publisher" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[na_sales]"
+                      dataType="r8"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[na_sales]"
+                      name="na_sales" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[eu_sales]"
+                      dataType="r8"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[eu_sales]"
+                      name="eu_sales" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[jp_sales]"
+                      dataType="r8"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[jp_sales]"
+                      name="jp_sales" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[other_sales]"
+                      dataType="r8"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[other_sales]"
+                      name="other_sales" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[global_sales]"
+                      dataType="r8"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[global_sales]"
+                      name="global_sales" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Gréer les Facts du table VG.Paths[Multidiffusion sortie 1]"
+              endId="Package\Gréer les Facts du table VG\Fact vente par region.Inputs[Entrée de destination OLE DB]"
+              name="Multidiffusion sortie 1"
+              startId="Package\Gréer les Facts du table VG\Multidiffusion.Outputs[Multidiffusion sortie 1]" />
+            <path
+              refId="Package\Gréer les Facts du table VG.Paths[Sortie de multidiffusion 1]"
+              endId="Package\Gréer les Facts du table VG\Fact vente golobal.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de multidiffusion 1"
+              startId="Package\Gréer les Facts du table VG\Multidiffusion.Outputs[Sortie de multidiffusion 1]" />
+            <path
+              refId="Package\Gréer les Facts du table VG.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Gréer les Facts du table VG\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Gréer les Facts du table VG.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Gréer les Facts du table VG\Recherche DimPlatform.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Gréer les Facts du table VG.Paths[Sortie de recherche avec correspondance2]"
+              endId="Package\Gréer les Facts du table VG\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Gréer les Facts du table VG\Recherche DimPublisher.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Gréer les Facts du table VG.Paths[Sortie de source OLE DB]"
+              endId="Package\Gréer les Facts du table VG\Recherche DimGenre.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\Gréer les Facts du table VG\VG_ods.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Gréer les Facts du table VG"
+          TopLeft="129,148" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Gréer les Facts du table VG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Gréer les Facts du table VG\VG_ods"
+          TopLeft="56,30" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Gréer les Facts du table VG\Fact vente par region"
+          TopLeft="71,439" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Gréer les Facts du table VG\Recherche DimGenre"
+          TopLeft="95,116" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Gréer les Facts du table VG\Recherche DimPlatform"
+          TopLeft="156,189" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Gréer les Facts du table VG\Recherche DimPublisher"
+          TopLeft="228,260" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Gréer les Facts du table VG\Multidiffusion"
+          TopLeft="244,352" />
+        <EdgeLayout
+          Id="Package\Gréer les Facts du table VG.Paths[Sortie de source OLE DB]"
+          TopLeft="113.5,72">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.5,44"
+              Start="0,0"
+              End="70.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="66.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.5,22"
+                    Point2="70.5,22"
+                    Point3="70.5,26" />
+                  <mssgle:LineSegment
+                    End="70.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gréer les Facts du table VG.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="184,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.5,31"
+              Start="0,0"
+              End="66.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="62.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.5,15.5"
+                    Point2="66.5,15.5"
+                    Point3="66.5,19.5" />
+                  <mssgle:LineSegment
+                    End="66.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-58.42701171875,20.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gréer les Facts du table VG.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="250.5,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74,29"
+              Start="0,0"
+              End="74,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="70,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70,14.5"
+                    Point2="74,14.5"
+                    Point3="74,18.5" />
+                  <mssgle:LineSegment
+                    End="74,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-54.67701171875,19.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gréer les Facts du table VG.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="324.5,302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,50"
+              Start="0,0"
+              End="-9.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-5.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,25"
+                    Point2="-9.5,25"
+                    Point3="-9.5,29" />
+                  <mssgle:LineSegment
+                    End="-9.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-96.42701171875,30,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Gréer les Facts du table VG\Fact vente golobal"
+          TopLeft="398,440" />
+        <EdgeLayout
+          Id="Package\Gréer les Facts du table VG.Paths[Multidiffusion sortie 1]"
+          TopLeft="315,394">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154,45"
+              Start="0,0"
+              End="-154,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="-4,22.5" />
+                  <mssgle:LineSegment
+                    End="-150,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-150,22.5"
+                    Point2="-154,22.5"
+                    Point3="-154,26.5" />
+                  <mssgle:LineSegment
+                    End="-154,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gréer les Facts du table VG.Paths[Sortie de multidiffusion 1]"
+          TopLeft="337.333333333333,394">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.166666666667,46"
+              Start="0,0"
+              End="143.166666666667,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.7075208913649" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.7075208913649"
+                    Point2="0,18.7075208913649"
+                    Point3="4,18.7075208913649" />
+                  <mssgle:LineSegment
+                    End="139.166666666667,18.7075208913649" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.166666666667,18.7075208913649"
+                    Point2="143.166666666667,18.7075208913649"
+                    Point3="143.166666666667,22.7075208913649" />
+                  <mssgle:LineSegment
+                    End="143.166666666667,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gréer les Facts du table VG\VG_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gréer les Facts du table VG\Fact vente par region">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gréer les Facts du table VG\Recherche DimGenre">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimGenreVG]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gréer les Facts du table VG\Recherche DimPlatform">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPlatformVG]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gréer les Facts du table VG\Recherche DimPublisher">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPublisherVG]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gréer les Facts du table VG\Fact vente golobal">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1677 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2024 12:23:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RANIMS-PC1"
+  DTS:CreatorName="RANIMS-PC1\Ranim Rahal"
+  DTS:DTSID="{D29A2F57-4887-4F5C-8645-DE6AB0959845}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="Package3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{59E8856C-2520-46AE-B468-8595BC192C8F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Créer les Fact du table Films"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{789D6E54-355E-4ABE-98B1-C52C6A6943F1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Créer les Fact du table Films"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Créer les Fact du table Films\Fact ventes internationales"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact ventes internationales"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact_VentesInternationalesFilms]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Fact du table Films\Fact ventes internationales.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].Columns[international_sales_(in_$)]"
+                      cachedDataType="r8"
+                      cachedName="international_sales_(in_$)"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].ExternalColumns[international_sales_(in_$)]"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[international_sales_(in_$)]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].Columns[id_DimGenreFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimGenreFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreFilms]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].Columns[id_DimDistributorFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimDistributorFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimDistributorFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimDistributorFilms]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].Columns[id_DimRlsDateFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimRlsDateFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimRlsDateFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie de recherche avec correspondance].Columns[id_DimRlsDateFilms]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].ExternalColumns[international_sales_(in_$)]"
+                      dataType="r8"
+                      name="international_sales_(in_$)" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreFilms]"
+                      dataType="i4"
+                      name="id_DimGenreFilms" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimDistributorFilms]"
+                      dataType="i4"
+                      name="id_DimDistributorFilms" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimRlsDateFilms]"
+                      dataType="i4"
+                      name="id_DimRlsDateFilms" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Fact du table Films\Fact ventes internationales.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Fact ventes internationales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes internationales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Fact ventes internationales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Fact du table Films\Fact ventes mondiales"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact ventes mondiales"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact_VentesMondialesFilms]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].Columns[world_sales_(in_$)]"
+                      cachedDataType="r8"
+                      cachedName="world_sales_(in_$)"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].ExternalColumns[world_sales_(in_$)]"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[world_sales_(in_$)]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].Columns[id_DimGenreFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimGenreFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreFilms]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].Columns[id_DimDistributorFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimDistributorFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimDistributorFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimDistributorFilms]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].Columns[id_DimRlsDateFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimRlsDateFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimRlsDateFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie de recherche avec correspondance].Columns[id_DimRlsDateFilms]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].ExternalColumns[world_sales_(in_$)]"
+                      dataType="r8"
+                      name="world_sales_(in_$)" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreFilms]"
+                      dataType="i4"
+                      name="id_DimGenreFilms" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimDistributorFilms]"
+                      dataType="i4"
+                      name="id_DimDistributorFilms" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimRlsDateFilms]"
+                      dataType="i4"
+                      name="id_DimRlsDateFilms" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Fact ventes mondiales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes mondiales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Fact ventes mondiales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Fact du table Films\Fact ventes nationales"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact ventes nationales"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact_VentesNationalesFilms]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Fact du table Films\Fact ventes nationales.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].Columns[domestic_sales_(in_$)]"
+                      cachedDataType="r8"
+                      cachedName="domestic_sales_(in_$)"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].ExternalColumns[domestic_sales_(in_$)]"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[domestic_sales_(in_$)]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].Columns[id_DimGenreFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimGenreFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreFilms]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].Columns[id_DimDistributorFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimDistributorFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimDistributorFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimDistributorFilms]" />
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].Columns[id_DimRlsDateFilms]"
+                      cachedDataType="i4"
+                      cachedName="id_DimRlsDateFilms"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimRlsDateFilms]"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie de recherche avec correspondance].Columns[id_DimRlsDateFilms]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].ExternalColumns[domestic_sales_(in_$)]"
+                      dataType="r8"
+                      name="domestic_sales_(in_$)" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreFilms]"
+                      dataType="i4"
+                      name="id_DimGenreFilms" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimDistributorFilms]"
+                      dataType="i4"
+                      name="id_DimDistributorFilms" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimRlsDateFilms]"
+                      dataType="i4"
+                      name="id_DimRlsDateFilms" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Fact du table Films\Fact ventes nationales.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Fact ventes nationales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Fact ventes nationales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Fact ventes nationales.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Fact du table Films\Films_ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Films_ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination Films_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Fact du table Films\Films_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[distributor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[distributor]"
+                      length="255"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[distributor]"
+                      name="distributor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[release_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[release_date]"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[release_date]"
+                      name="release_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[domestic_sales_(in_$)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[domestic_sales_(in_$)]"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[domestic_sales_(in_$)]"
+                      name="domestic_sales_(in_$)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[international_sales_(in_$)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[international_sales_(in_$)]"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[international_sales_(in_$)]"
+                      name="international_sales_(in_$)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[world_sales_(in_$)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[world_sales_(in_$)]"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[world_sales_(in_$)]"
+                      name="world_sales_(in_$)"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[rank]"
+                      dataType="r8"
+                      name="rank" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[title]"
+                      dataType="wstr"
+                      length="255"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[movie_info]"
+                      dataType="wstr"
+                      length="255"
+                      name="movie_info" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[distributor]"
+                      dataType="wstr"
+                      length="255"
+                      name="distributor" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[release_date]"
+                      dataType="dbTimeStamp"
+                      name="release_date" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[domestic_sales_(in_$)]"
+                      dataType="r8"
+                      name="domestic_sales_(in_$)" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[international_sales_(in_$)]"
+                      dataType="r8"
+                      name="international_sales_(in_$)" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[world_sales_(in_$)]"
+                      dataType="r8"
+                      name="world_sales_(in_$)" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[movie_runtime]"
+                      dataType="wstr"
+                      length="255"
+                      name="movie_runtime" />
+                    <externalMetadataColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].ExternalColumns[license]"
+                      dataType="wstr"
+                      length="255"
+                      name="license" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[distributor]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[distributor]"
+                      name="distributor" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[release_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[release_date]"
+                      name="release_date" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[domestic_sales_(in_$)]"
+                      dataType="r8"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[domestic_sales_(in_$)]"
+                      name="domestic_sales_(in_$)" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[international_sales_(in_$)]"
+                      dataType="r8"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[international_sales_(in_$)]"
+                      name="international_sales_(in_$)" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[world_sales_(in_$)]"
+                      dataType="r8"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[world_sales_(in_$)]"
+                      name="world_sales_(in_$)" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Fact du table Films\Multidiffusion"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multidiffusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Distribue chaque ligne d'entrée à chaque ligne dans au moins une sortie. Par exemple, connectez votre flux de données pour effectuer une copie des données afin que certaines valeurs puissent être masquées avant de les partager avec des partenaires externes."
+              name="Multidiffusion">
+              <inputs>
+                <input
+                  refId="Package\Créer les Fact du table Films\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+                  name="Multidiffusion entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Fact du table Films\Multidiffusion.Outputs[Multidiffusion sortie 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multidiffusion sortie 1"
+                  synchronousInputId="Package\Créer les Fact du table Films\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Multidiffusion.Outputs[Sortie de multidiffusion 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 1"
+                  synchronousInputId="Package\Créer les Fact du table Films\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Multidiffusion.Outputs[Sortie de multidiffusion 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 2"
+                  synchronousInputId="Package\Créer les Fact du table Films\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Multidiffusion.Outputs[Sortie de multidiffusion 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 3"
+                  synchronousInputId="Package\Créer les Fact du table Films\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Fact du table Films\Recherche DimDistributor"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimDistributor"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimDistributorFilms]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimDistributorFilms]) [refTable]
+where [refTable].[distributor] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimDistributorFilms" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="distributor" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[distributor]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Inputs[Entrée de recherche].Columns[distributor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="distributor"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[distributor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">distributor</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimDistributor.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimDistributorFilms]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie de recherche avec correspondance].Columns[id_DimDistributorFilms]"
+                      name="id_DimDistributorFilms"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimDistributorFilms</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimDistributor.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimDistributor.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Fact du table Films\Recherche DimGenre"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimGenre"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimGenreFilms]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimGenreFilms]) [refTable]
+where [refTable].[genre] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimGenreFilms" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="genre" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[genre]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Fact du table Films\Recherche DimGenre.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Fact du table Films\Recherche DimGenre.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimGenre.Inputs[Entrée de recherche].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[genre]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">genre</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreFilms]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance].Columns[id_DimGenreFilms]"
+                      name="id_DimGenreFilms"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimGenreFilms</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimGenre.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche DimReleaseDate"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimReleaseDateFilms]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimReleaseDateFilms]) [refTable]
+where [refTable].[release_date] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_DimRlsDateFilms" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="release_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[release_date]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Inputs[Entrée de recherche].Columns[release_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="release_date"
+                      lineageId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB].Columns[release_date]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">release_date</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie de recherche avec correspondance].Columns[id_DimRlsDateFilms]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie de recherche avec correspondance].Columns[id_DimRlsDateFilms]"
+                      name="id_DimRlsDateFilms"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_DimRlsDateFilms</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Créer les Fact du table Films.Paths[Multidiffusion sortie 1]"
+              endId="Package\Créer les Fact du table Films\Fact ventes nationales.Inputs[Entrée de destination OLE DB]"
+              name="Multidiffusion sortie 1"
+              startId="Package\Créer les Fact du table Films\Multidiffusion.Outputs[Multidiffusion sortie 1]" />
+            <path
+              refId="Package\Créer les Fact du table Films.Paths[Sortie de multidiffusion 1]"
+              endId="Package\Créer les Fact du table Films\Fact ventes internationales.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de multidiffusion 1"
+              startId="Package\Créer les Fact du table Films\Multidiffusion.Outputs[Sortie de multidiffusion 1]" />
+            <path
+              refId="Package\Créer les Fact du table Films.Paths[Sortie de multidiffusion 2]"
+              endId="Package\Créer les Fact du table Films\Fact ventes mondiales.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de multidiffusion 2"
+              startId="Package\Créer les Fact du table Films\Multidiffusion.Outputs[Sortie de multidiffusion 2]" />
+            <path
+              refId="Package\Créer les Fact du table Films.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Créer les Fact du table Films\Recherche DimDistributor.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Créer les Fact du table Films\Recherche DimGenre.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Créer les Fact du table Films.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Créer les Fact du table Films\Recherche DimDistributor.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Créer les Fact du table Films.Paths[Sortie de recherche avec correspondance2]"
+              endId="Package\Créer les Fact du table Films\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Créer les Fact du table Films\Recherche DimReleaseDate.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Créer les Fact du table Films.Paths[Sortie de source OLE DB]"
+              endId="Package\Créer les Fact du table Films\Recherche DimGenre.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\Créer les Fact du table Films\Films_ods.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Créer les Fact du table Films"
+          TopLeft="153,128" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Créer les Fact du table Films">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Créer les Fact du table Films\Films_ods"
+          TopLeft="126,34" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Créer les Fact du table Films\Recherche DimGenre"
+          TopLeft="195,117" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Créer les Fact du table Films\Recherche DimDistributor"
+          TopLeft="265,186" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Créer les Fact du table Films\Recherche DimReleaseDate"
+          TopLeft="356,257" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Créer les Fact du table Films\Multidiffusion"
+          TopLeft="368,342" />
+        <EdgeLayout
+          Id="Package\Créer les Fact du table Films.Paths[Sortie de source OLE DB]"
+          TopLeft="188.5,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.5,41"
+              Start="0,0"
+              End="95.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="91.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.5,20.5"
+                    Point2="95.5,20.5"
+                    Point3="95.5,24.5" />
+                  <mssgle:LineSegment
+                    End="95.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Fact du table Films.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="284,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80.5,27"
+              Start="0,0"
+              End="80.5,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="4,13.5" />
+                  <mssgle:LineSegment
+                    End="76.5,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="76.5,13.5"
+                    Point2="80.5,13.5"
+                    Point3="80.5,17.5" />
+                  <mssgle:LineSegment
+                    End="80.5,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-51.42701171875,18.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Fact du table Films.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="364.5,228">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.5,29"
+              Start="0,0"
+              End="95.5,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="91.5,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.5,14.5"
+                    Point2="95.5,14.5"
+                    Point3="95.5,18.5" />
+                  <mssgle:LineSegment
+                    End="95.5,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.92701171875,19.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Fact du table Films.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="460,299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21,43"
+              Start="0,0"
+              End="-21,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="-4,21.5" />
+                  <mssgle:LineSegment
+                    End="-17,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17,21.5"
+                    Point2="-21,21.5"
+                    Point3="-21,25.5" />
+                  <mssgle:LineSegment
+                    End="-21,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-102.17701171875,26.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Créer les Fact du table Films\Fact ventes nationales"
+          TopLeft="47,450" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Créer les Fact du table Films\Fact ventes internationales"
+          TopLeft="265,450" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Créer les Fact du table Films\Fact ventes mondiales"
+          TopLeft="502,448" />
+        <EdgeLayout
+          Id="Package\Créer les Fact du table Films.Paths[Multidiffusion sortie 1]"
+          TopLeft="439,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-300,66"
+              Start="0,0"
+              End="-300,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="-4,33" />
+                  <mssgle:LineSegment
+                    End="-296,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-296,33"
+                    Point2="-300,33"
+                    Point3="-300,37" />
+                  <mssgle:LineSegment
+                    End="-300,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Fact du table Films.Paths[Sortie de multidiffusion 1]"
+          TopLeft="461.333333333333,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-93.8333333333333,66"
+              Start="0,0"
+              End="-93.8333333333333,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.841225626741" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.841225626741"
+                    Point2="0,26.841225626741"
+                    Point3="-4,26.841225626741" />
+                  <mssgle:LineSegment
+                    End="-89.8333333333333,26.841225626741" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-89.8333333333333,26.841225626741"
+                    Point2="-93.8333333333333,26.841225626741"
+                    Point3="-93.8333333333333,30.841225626741" />
+                  <mssgle:LineSegment
+                    End="-93.8333333333333,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Créer les Fact du table Films.Paths[Sortie de multidiffusion 2]"
+          TopLeft="472.5,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.5,64"
+              Start="0,0"
+              End="121.5,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1198156682028" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1198156682028"
+                    Point2="0,22.1198156682028"
+                    Point3="4,22.1198156682028" />
+                  <mssgle:LineSegment
+                    End="117.5,22.1198156682028" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.5,22.1198156682028"
+                    Point2="121.5,22.1198156682028"
+                    Point3="121.5,26.1198156682028" />
+                  <mssgle:LineSegment
+                    End="121.5,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Fact du table Films\Films_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Fact du table Films\Recherche DimGenre">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimGenreFilms]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Fact du table Films\Recherche DimDistributor">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDistributorFilms]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Fact du table Films\Recherche DimReleaseDate">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimReleaseDateFilms]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Fact du table Films\Fact ventes nationales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Fact du table Films\Fact ventes internationales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Créer les Fact du table Films\Fact ventes mondiales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

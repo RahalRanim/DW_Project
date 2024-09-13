@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="RANIMS-PC1.ODS"
+  DTS:DTSID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=RANIMS-PC1;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Projet Entropot_Donnees-{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}RANIMS-PC1.ODS;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

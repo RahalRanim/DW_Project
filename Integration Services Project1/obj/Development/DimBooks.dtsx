@@ -1,0 +1,1141 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2024 11:11:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RANIMS-PC1"
+  DTS:CreatorName="RANIMS-PC1\Ranim Rahal"
+  DTS:DTSID="{78AA5162-22ED-4ED8-B172-3E56C865BBDC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="DimBooks"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{F53B0CBC-35EE-4564-9022-3CC1A7B50E03}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Les Dims du table Books"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{FCA3196C-2C36-4B5E-8658-BDC17A67A416}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Les Dims du table Books"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Les Dims du table Books\Author_ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Author_ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination Books_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table Books\Author_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].Columns[author]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[author]"
+                      length="255"
+                      lineageId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].Columns[author]"
+                      name="author"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[index]"
+                      dataType="r8"
+                      name="index" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="publishing_year" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="book_name" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[author]"
+                      dataType="wstr"
+                      length="255"
+                      name="author" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[language_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[author_rating]"
+                      dataType="wstr"
+                      length="255"
+                      name="author_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_average_rating]"
+                      dataType="r8"
+                      name="book_average_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_ratings_count]"
+                      dataType="r8"
+                      name="book_ratings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[gross_sales]"
+                      dataType="r8"
+                      name="gross_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher_revenue]"
+                      dataType="r8"
+                      name="publisher_revenue" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[sale_price]"
+                      dataType="r8"
+                      name="sale_price" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[sales_rank]"
+                      dataType="r8"
+                      name="sales_rank" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher_]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher_" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].ExternalColumns[units_sold]"
+                      dataType="r8"
+                      name="units_sold" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[author]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[author]"
+                      name="author" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table Books\DimAuthor_DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DimAuthor_DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DimAuthorBook]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table Books\DimAuthor_DW.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Les Dims du table Books\DimAuthor_DW.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Les Dims du table Books\DimAuthor_DW.Inputs[Entrée de destination OLE DB].Columns[author]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="author"
+                      externalMetadataColumnId="Package\Les Dims du table Books\DimAuthor_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[author]"
+                      lineageId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB].Columns[author]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\DimAuthor_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[author]"
+                      dataType="wstr"
+                      length="255"
+                      name="author" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\DimAuthor_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimAuthorBook]"
+                      dataType="i4"
+                      name="id_DimAuthorBook" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table Books\DimAuthor_DW.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Les Dims du table Books\DimAuthor_DW.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\DimAuthor_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\DimAuthor_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\DimAuthor_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\DimAuthor_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table Books\DimGenreBooks_DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DimGenreBooks_DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DimGenreBooks]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table Books\DimGenreBooks_DW.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Les Dims du table Books\DimGenreBooks_DW.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Les Dims du table Books\DimGenreBooks_DW.Inputs[Entrée de destination OLE DB].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      externalMetadataColumnId="Package\Les Dims du table Books\DimGenreBooks_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      lineageId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].Columns[genre]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\DimGenreBooks_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\DimGenreBooks_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimGenreBooks]"
+                      dataType="i4"
+                      name="id_DimGenreBooks" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table Books\DimGenreBooks_DW.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Les Dims du table Books\DimGenreBooks_DW.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\DimGenreBooks_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\DimGenreBooks_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\DimGenreBooks_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\DimGenreBooks_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table Books\DimPublishingYear_DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DimPublishingYear_DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DimPublishingYearBooks]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table Books\DimPublishingYear_DW.Connections[OleDbConnection]"
+                  connectionManagerID="{AEB9F350-5B55-473F-A23C-26EADCF3B368}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.DW_Projet]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Les Dims du table Books\DimPublishingYear_DW.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Les Dims du table Books\DimPublishingYear_DW.Inputs[Entrée de destination OLE DB].Columns[publishing_year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="publishing_year"
+                      externalMetadataColumnId="Package\Les Dims du table Books\DimPublishingYear_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[publishing_year]"
+                      lineageId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].Columns[publishing_year]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\DimPublishingYear_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="publishing_year" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\DimPublishingYear_DW.Inputs[Entrée de destination OLE DB].ExternalColumns[id_DimPubYearBooks]"
+                      dataType="i4"
+                      name="id_DimPubYearBooks" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table Books\DimPublishingYear_DW.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Les Dims du table Books\DimPublishingYear_DW.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\DimPublishingYear_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\DimPublishingYear_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\DimPublishingYear_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\DimPublishingYear_DW.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table Books\Genre_ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Genre_ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination Books_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table Books\Genre_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[index]"
+                      dataType="r8"
+                      name="index" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="publishing_year" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="book_name" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[author]"
+                      dataType="wstr"
+                      length="255"
+                      name="author" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[language_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[author_rating]"
+                      dataType="wstr"
+                      length="255"
+                      name="author_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_average_rating]"
+                      dataType="r8"
+                      name="book_average_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_ratings_count]"
+                      dataType="r8"
+                      name="book_ratings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[gross_sales]"
+                      dataType="r8"
+                      name="gross_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher_revenue]"
+                      dataType="r8"
+                      name="publisher_revenue" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[sale_price]"
+                      dataType="r8"
+                      name="sale_price" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[sales_rank]"
+                      dataType="r8"
+                      name="sales_rank" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher_]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher_" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB].ExternalColumns[units_sold]"
+                      dataType="r8"
+                      name="units_sold" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Les Dims du table Books\PublishingYear_ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="PublishingYear_ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Destination Books_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Les Dims du table Books\PublishingYear_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{FB3F6099-00BE-49DB-B9F3-02A4D9CC6F11}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RANIMS-PC1.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].Columns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publishing_year]"
+                      length="50"
+                      lineageId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].Columns[publishing_year]"
+                      name="publishing_year"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[index]"
+                      dataType="r8"
+                      name="index" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="publishing_year" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="book_name" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[author]"
+                      dataType="wstr"
+                      length="255"
+                      name="author" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[language_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[author_rating]"
+                      dataType="wstr"
+                      length="255"
+                      name="author_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_average_rating]"
+                      dataType="r8"
+                      name="book_average_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[book_ratings_count]"
+                      dataType="r8"
+                      name="book_ratings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[gross_sales]"
+                      dataType="r8"
+                      name="gross_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher_revenue]"
+                      dataType="r8"
+                      name="publisher_revenue" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[sale_price]"
+                      dataType="r8"
+                      name="sale_price" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[sales_rank]"
+                      dataType="r8"
+                      name="sales_rank" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[publisher_]"
+                      dataType="wstr"
+                      length="255"
+                      name="publisher_" />
+                    <externalMetadataColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB].ExternalColumns[units_sold]"
+                      dataType="r8"
+                      name="units_sold" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[publishing_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie d'erreur de source OLE DB].Columns[publishing_year]"
+                      name="publishing_year" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Les Dims du table Books.Paths[Sortie de source OLE DB]"
+              endId="Package\Les Dims du table Books\DimAuthor_DW.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Les Dims du table Books\Author_ods.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Les Dims du table Books.Paths[Sortie de source OLE DB1]"
+              endId="Package\Les Dims du table Books\DimGenreBooks_DW.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Les Dims du table Books\Genre_ods.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Les Dims du table Books.Paths[Sortie de source OLE DB2]"
+              endId="Package\Les Dims du table Books\DimPublishingYear_DW.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Les Dims du table Books\PublishingYear_ods.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Les Dims du table Books"
+          TopLeft="69,168" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Les Dims du table Books">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Les Dims du table Books\Genre_ods"
+          TopLeft="260,151" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Les Dims du table Books\PublishingYear_ods"
+          TopLeft="480,149" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Les Dims du table Books\DimPublishingYear_DW"
+          TopLeft="477,255" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Les Dims du table Books\DimGenreBooks_DW"
+          TopLeft="231,250" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Les Dims du table Books\Author_ods"
+          TopLeft="53,150" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Les Dims du table Books\DimAuthor_DW"
+          TopLeft="35,246" />
+        <EdgeLayout
+          Id="Package\Les Dims du table Books.Paths[Sortie de source OLE DB2]"
+          TopLeft="568.25,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Les Dims du table Books.Paths[Sortie de source OLE DB1]"
+          TopLeft="321.75,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Les Dims du table Books.Paths[Sortie de source OLE DB]"
+          TopLeft="119.5,192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,54"
+              Start="0,0"
+              End="-8.5,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="-4,27" />
+                  <mssgle:LineSegment
+                    End="-4.5,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,27"
+                    Point2="-8.5,27"
+                    Point3="-8.5,31" />
+                  <mssgle:LineSegment
+                    End="-8.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table Books\Genre_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table Books\PublishingYear_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table Books\DimPublishingYear_DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table Books\DimGenreBooks_DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table Books\Author_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Les Dims du table Books\DimAuthor_DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
